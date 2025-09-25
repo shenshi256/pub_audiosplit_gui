@@ -173,72 +173,75 @@ class SplashScreen(QMainWindow):
 
     def check_authorization(self):
         """检查授权状态"""
-        #machine_code, auth_time, last_auth_code = settings_manager.get_auth_info()
-        auth_time, last_auth_code = settings_manager.get_auth_info()
-        # 检查授权信息完整性
-        #if not machine_code or not auth_time or not last_auth_code:
-        if not auth_time or not last_auth_code:
-            self.auth_ready = True  # 需要显示授权窗口
-            self.check_ready_state()
-            return
-
-        try:
-            # 第一次解密
-            auth_code_one_de = aes_decrypt(last_auth_code)
-            if auth_code_one_de is None:
-                raise ValueError("第一次解密失败")
-
-            # 检查分隔后的元素数量
-            auth_parts = auth_code_one_de.split("|")
-            if len(auth_parts) != 2:
-                raise ValueError("授权码格式错误")
-
-            auth_code_en = auth_parts[0]
-            temp_time = auth_parts[1]
-
-            # 第二次解密
-            auth_code = aes_decrypt(auth_code_en)
-            if auth_code is None:
-                raise ValueError("第二次解密失败")
-
-            # 解析内层授权码
-            auth_code_parts = auth_code.split("|")
-            if len(auth_code_parts) != 2:
-                raise ValueError("内层授权码格式错误")
-
-            auth_code_machine = auth_code_parts[0]
-            auth_code_day = auth_code_parts[1]
-
-            # 验证机器码
-            current_machine_code = AuthWindow.AuthWindow.generate_machine_code_static()
-            if current_machine_code and auth_code_machine.replace('-', '') != current_machine_code.replace('-', ''):
-                raise ValueError("机器码不匹配")
-
-            # 检查授权天数
-            auth_days = int(auth_code_day)
-
-            if auth_days == 0:
-                # 无限制授权
-                self.auth_ready = True
-                self.check_ready_state()
-                return
-
-            # 检查授权是否过期
-            auth_datetime = datetime.strptime(temp_time, "%Y-%m-%d %H:%M:%S")
-            expire_datetime = auth_datetime + timedelta(days=auth_days)
-            current_datetime = datetime.now()
-
-            if current_datetime < auth_datetime or current_datetime > expire_datetime:
-                raise ValueError("授权已过期或时间异常")
-
-            # 授权有效
-            self.auth_ready = True
-            self.check_ready_state()
-
-        except Exception as e:
-            logger_manager.warning(f"授权检查失败: {e}，将显示授权窗口", "splash_screen")
-            self.auth_ready = True  # 需要显示授权窗口
-            self.check_ready_state()
+        self.auth_ready = True  # 直接返回授权有效
+        self.check_ready_state()
+        return
+        # #machine_code, auth_time='2025-08-04 12:33:30', last_auth_code='cS/6Z5LN8200Reg8C1dY0hiubQDx+A0rs3vVv4bhyLutRpPr4PTjrfc9GJAVjWO4o8GYPOKfDU3aepgWIxIl0lFtBqefaJIv/MPEmN254Zc='
+        # auth_time, last_auth_code = settings_manager.get_auth_info()
+        # # 检查授权信息完整性
+        # #if not machine_code or not auth_time or not last_auth_code:
+        # if not auth_time or not last_auth_code:
+        #     self.auth_ready = True  # 需要显示授权窗口
+        #     self.check_ready_state()
+        #     return
+        #
+        # try:
+        #     # 第一次解密
+        #     auth_code_one_de = aes_decrypt(last_auth_code)
+        #     if auth_code_one_de is None:
+        #         raise ValueError("第一次解密失败")
+        #
+        #     # 检查分隔后的元素数量
+        #     auth_parts = auth_code_one_de.split("|")
+        #     if len(auth_parts) != 2:
+        #         raise ValueError("授权码格式错误")
+        #
+        #     auth_code_en = auth_parts[0]
+        #     temp_time = auth_parts[1]
+        #
+        #     # 第二次解密
+        #     auth_code = aes_decrypt(auth_code_en)
+        #     if auth_code is None:
+        #         raise ValueError("第二次解密失败")
+        #
+        #     # 解析内层授权码
+        #     auth_code_parts = auth_code.split("|")
+        #     if len(auth_code_parts) != 2:
+        #         raise ValueError("内层授权码格式错误")
+        #
+        #     auth_code_machine = auth_code_parts[0]
+        #     auth_code_day = auth_code_parts[1]
+        #
+        #     # 验证机器码
+        #     current_machine_code = AuthWindow.AuthWindow.generate_machine_code_static()
+        #     if current_machine_code and auth_code_machine.replace('-', '') != current_machine_code.replace('-', ''):
+        #         raise ValueError("机器码不匹配")
+        #
+        #     # 检查授权天数
+        #     auth_days = int(auth_code_day)
+        #
+        #     if auth_days == 0:
+        #         # 无限制授权
+        #         self.auth_ready = True
+        #         self.check_ready_state()
+        #         return
+        #
+        #     # 检查授权是否过期
+        #     auth_datetime = datetime.strptime(temp_time, "%Y-%m-%d %H:%M:%S")
+        #     expire_datetime = auth_datetime + timedelta(days=auth_days)
+        #     current_datetime = datetime.now()
+        #
+        #     if current_datetime < auth_datetime or current_datetime > expire_datetime:
+        #         raise ValueError("授权已过期或时间异常")
+        #
+        #     # 授权有效
+        #     self.auth_ready = True
+        #     self.check_ready_state()
+        #
+        # except Exception as e:
+        #     logger_manager.warning(f"授权检查失败: {e}，将显示授权窗口", "splash_screen")
+        #     self.auth_ready = True  # 需要显示授权窗口
+        #     self.check_ready_state()
 
     def update_progress(self, value):
         """更新进度条"""
@@ -258,15 +261,20 @@ class SplashScreen(QMainWindow):
 
     def show_next_window(self):
         """显示下一个窗口"""
-        # 如果授权信息不完整或验证失败，显示授权窗口
-        if not self.is_auth_valid():
-            logger_manager.info("授权无效，显示授权窗口", "splash_screen")
-            self.show_auth_window()
-        else:
-            # 授权有效，直接显示主窗口
-            self.show_main_window()
-            # 关闭启动界面
-            self.close()
+        # 授权有效，直接显示主窗口
+        self.show_main_window()
+        # 关闭启动界面
+        self.close()
+        return
+        # # 如果授权信息不完整或验证失败，显示授权窗口
+        # if not self.is_auth_valid():
+        #     logger_manager.info("授权无效，显示授权窗口", "splash_screen")
+        #     self.show_auth_window()
+        # else:
+        #     # 授权有效，直接显示主窗口
+        #     self.show_main_window()
+        #     # 关闭启动界面
+        #     self.close()
 
     def is_auth_valid(self):
         """检查授权是否有效"""
