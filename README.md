@@ -1,7 +1,8 @@
 🎵 项目使用说明（音频分离工具 Demucs GUI）
 <h3>本工具基于 Facebook AI Research 开源模型 <a href="https://github.com/facebookresearch/demucs">Demucs</a> 封装，遵循 MIT License。</h3>
 平替剪映:
-![img_2.png](img_2.png)
+![img_3.png](img_3.png)
+
 1️⃣ 模型文件下载
 
 首次使用前，请下载 Demucs 模型文件（.th 格式）：
