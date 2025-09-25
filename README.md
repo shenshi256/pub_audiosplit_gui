@@ -72,3 +72,6 @@ output_vocals.wav, output_drums.wav 等。
 界面截图:
 ![img.png](img.png)
 ![img_1.png](img_1.png)
+
+如有帮助, 谢谢打赏
+![customer_service.png](qt%2Fimg%2Fcustomer_service.png)
