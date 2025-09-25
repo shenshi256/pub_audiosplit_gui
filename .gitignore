@@ -23,9 +23,6 @@ py/demucs_output/
 *.dll
 
 # 忽略构建相关文件
-build-obf.spec
-build.spec
-build-obf.bat
 obfuscated.py
 startup.bat
 
