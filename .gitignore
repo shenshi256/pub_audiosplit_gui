@@ -1,0 +1,41 @@
+# 忽略目录
+build/
+dist/
+models/
+dist_obfuscated/
+qt/build-qt-Desktop_Qt_5_6_1_MinGW_32bit-Debug/
+
+# 忽略 Python 缓存文件
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# 忽略音频输出目录
+py/demucs_output/
+*.wav
+*.mp3
+*.flac
+*.m4a
+
+# 忽略大型二进制文件
+*.exe
+*.dll
+
+# 忽略构建相关文件
+build-obf.spec
+build.spec
+build-obf.bat
+obfuscated.py
+startup.bat
+
+# 忽略临时文件和文档
+README.TD
+TODO.md
+*.log
+
+# 忽略IDE配置
+.idea/
+
+# 忽略敏感文件
+AESEncrypt.py

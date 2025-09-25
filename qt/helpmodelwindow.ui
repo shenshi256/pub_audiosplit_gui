@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>HelpModelWindow</class>
+ <widget class="QMainWindow" name="HelpModelWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>600</width>
+    <height>400</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="resource.qrc">
+    <normaloff>:/img/img/favicon.ico</normaloff>:/img/img/favicon.ico</iconset>
+  </property>
+  <property name="styleSheet">
+     <string>QWidget#HelpModelWindow {
+  background: qlineargradient(x1:0, y1:0, x2:1, y2:1, 
+        stop:0 #0f0f23, 
+        stop:0.3 #1a1a2e, 
+        stop:0.6 #16213e, 
+        stop:1 #0f3460);
+    border-radius: 5px;
+    border: 1px solid qlineargradient(x1:0, y1:0, x2:1, y2:1, 
+        stop:0 #00d4ff, 
+        stop:0.5 #0099cc, 
+        stop:1 #0066ff);
+}
+
+QWidget#centralwidget {
+    background: transparent;
+    border-radius: 5px;
+}
+
+QLabel {
+    color: white;
+    font-size: 12px;
+}
+
+QLabel#lblProjectHelp {
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    text-shadow: 0px 0px 10px rgba(0, 212, 255, 0.5);
+}
+
+QTextBrowser {
+    background: rgba(255, 255, 255, 90);
+    border: 1px solid rgba(255, 255, 255, 50);
+    border-radius: 5px;
+    color: #333;
+    font-size: 12px;
+    padding: 8px;
+    selection-background-color: rgba(0, 212, 255, 100);
+}
+
+QTextBrowser:focus {
+    border: 1px solid rgba(255, 255, 255, 150);
+    background: rgba(255, 255, 255, 95);
+}
+
+/* 滚动条样式 */
+QScrollBar:vertical {
+    background: rgba(255, 255, 255, 30);
+    width: 12px;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 50);
+}
+
+QScrollBar::handle:vertical {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #4facfe, stop:1 #00f2fe);
+    border-radius: 5px;
+    min-height: 20px;
+    border: 1px solid rgba(79, 172, 254, 150);
+}
+
+QScrollBar::handle:vertical:hover {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #5fbdff, stop:1 #10f3ff);
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    border: none;
+    background: none;
+}
+
+QPushButton {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(255, 255, 255, 80), stop:1 rgba(255, 255, 255, 60));
+    border: 1px solid rgba(255, 255, 255, 100);
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 8px;
+}
+
+QPushButton:hover {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(255, 255, 255, 100), stop:1 rgba(255, 255, 255, 80));
+    border: 1px solid rgba(255, 255, 255, 150);
+}
+
+QPushButton:pressed {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(255, 255, 255, 60), stop:1 rgba(255, 255, 255, 40));
+}
+
+QPushButton#btnClose {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, 
+        stop:0 rgba(0, 212, 255, 120), 
+        stop:1 rgba(0, 102, 255, 100));
+    border: 1px solid rgba(0, 212, 255, 150);
+    color: #ffffff;
+    text-shadow: 0px 0px 8px rgba(0, 212, 255, 0.5);
+    box-shadow: 0px 0px 15px rgba(0, 212, 255, 0.3);
+    border-radius: 5px;
+    font-size: 12px;
+    min-width: 80px;
+}
+
+QPushButton#btnClose:hover {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, 
+        stop:0 rgba(0, 212, 255, 150), 
+        stop:1 rgba(0, 102, 255, 130));
+    border: 1px solid rgba(0, 212, 255, 200);
+    box-shadow: 0px 0px 20px rgba(0, 212, 255, 0.5);
+    text-shadow: 0px 0px 10px rgba(0, 212, 255, 0.7);
+}
+
+QPushButton#btnClose:pressed {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, 
+        stop:0 rgba(0, 212, 255, 80), 
+        stop:1 rgba(0, 102, 255, 60));
+    border: 1px solid rgba(0, 212, 255, 100);
+    box-shadow: 0px 0px 10px rgba(0, 212, 255, 0.2);
+}</string>
+  </property>
+
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLabel" name="lblProjectHelp">
+      <property name="font">
+       <font>
+        <family>Arial Black</family>
+        <pointsize>24</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>项目使用帮助</string>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::AutoText</enum>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QTextBrowser" name="textBrowser"/>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnClose">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>31</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>31</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Arial</family>
+          <pointsize>16</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>关闭</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
+ <connections/>
+</ui>
