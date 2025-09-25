@@ -198,16 +198,15 @@ class HelpProjectWindow(QMainWindow):
       <ul>
         <li>🧬 官网地址: <a href="https://github.com/facebookresearch/demucs" target="_blank">https://github.com/facebookresearch/demucs</a></li>
         <li>📦 百度网盘：<a href="https://pan.baidu.com/s/1mNNWBpeq8Lk19-q3JPqrmA?pwd=b6xx" class="link">https://pan.baidu.com/s/1mNNWBpeq8Lk19-q3JPqrmA?pwd=b6xx</a> <span class="link">提取码: b6xx</span></li>
-        <li>👉 如嫌网盘限速, 可以联系客服, 发邮箱超大附件</li>
       </ul>
     </div>
 
     <div class="section">
-      <p><span class="bold">📞 联系客服:</span></p>
+      <p><span class="bold">☕ 如有帮助, 感谢打赏:</span></p>
       <p>
-      {f'<img src="{customer_service_img}" alt="客服二维码" style="max-width: 200px; height: auto; display: block; margin: 10px 0; border: 1px solid #444; border-radius: 8px;"/>' if customer_service_img else '<p style="color: #ff6b6b;">客服图片加载失败，请检查图片文件是否存在</p>'}
+      {f'<img src="{customer_service_img}" alt="客服二维码" style="max-width: 400px; height: 300px; display: block; margin: 10px auto; border: 1px solid #444; border-radius: 8px;"/>' if customer_service_img else '<p style="color: #ff6b6b;">客服图片加载失败，请检查图片文件是否存在</p>'}
       </p>
-      <p>扫描上方二维码联系客服获取技术支持</p>
+      
     </div>
 
     <hr>
