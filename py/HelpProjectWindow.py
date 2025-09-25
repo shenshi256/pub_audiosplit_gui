@@ -197,7 +197,7 @@ class HelpProjectWindow(QMainWindow):
       <p><span class="bold">🔗 下载地址：</span>如你尚未下载模型，可前往以下地址获取：</p>
       <ul>
         <li>🧬 官网地址: <a href="https://github.com/facebookresearch/demucs" target="_blank">https://github.com/facebookresearch/demucs</a></li>
-        <li>📦 百度网盘：<a href="https://pan.baidu.com/s/1mNNWBpeq8Lk19-q3JPqrmA?pwd=b6xx" class="link">https://pan.baidu.com/s/1mNNWBpeq8Lk19-q3JPqrmA?pwd=b6xx</a> <span class="link">提取码: b6xx</span></li>
+        <li>📦 百度网盘(含exe文件)：<a href="https://pan.baidu.com/s/1mNNWBpeq8Lk19-q3JPqrmA?pwd=b6xx" class="link">https://pan.baidu.com/s/1mNNWBpeq8Lk19-q3JPqrmA?pwd=b6xx</a> <span class="link">提取码: b6xx</span></li>
       </ul>
     </div>
 

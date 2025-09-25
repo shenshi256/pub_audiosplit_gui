@@ -7,8 +7,8 @@
 🔗 官方地址：
 👉 https://github.com/facebookresearch/demucs
 
-🇨🇳 国内下载镜像（推荐）：
-📦 百度网盘：https://pan.baidu.com/s/1xfurcZC4Ctv3CDUNLBiQ5A?pwd=3sb5  提取码: 3sb5
+🇨🇳 国内下载（推荐）：
+📦 百度网盘(含exe)：https://pan.baidu.com/s/1xfurcZC4Ctv3CDUNLBiQ5A?pwd=3sb5  提取码: 3sb5
 
 2️⃣ 模型文件放置说明
 
@@ -68,3 +68,7 @@
 🛠 如果遇到问题，可开启调试模式查看详细日志；
 📥 分离结果默认保存在 demucs_output 文件夹中，命名规则为：
 output_vocals.wav, output_drums.wav 等。
+
+界面截图:
+![img.png](img.png)
+![img_1.png](img_1.png)
